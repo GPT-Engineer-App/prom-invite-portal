@@ -16,6 +16,7 @@ const Index = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const toast = useToast();
 
   const handleLogin = () => {
@@ -53,16 +54,25 @@ const Index = () => {
         </VStack>
       ) : (
         <VStack spacing={4} p={4} overflowY="auto" width="100%">
-          <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" />
-          <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" />
-          <TimelineEvent date="2024-03-17" description="St. Patrick's Day" imageUrl="https://example.com/st-patrick.jpg" />
-          <TimelineEvent date="2024-04-01" description="April Fool's Day" imageUrl="https://example.com/april-fool.jpg" />
-          <TimelineEvent date="2024-05-01" description="Labor Day" imageUrl="https://example.com/labor-day.jpg" />
-          <TimelineEvent date="2024-06-01" description="Start of Summer" imageUrl="https://example.com/summer.jpg" />
-          <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" />
-          <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" />
-          <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" />
-          <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" />
+          {editMode ? (
+            <Button colorScheme="blue" onClick={() => setEditMode(false)}>
+              Save Changes
+            </Button>
+          ) : (
+            <Button colorScheme="blue" onClick={() => setEditMode(true)}>
+              Edit
+            </Button>
+          )}
+          <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" editable={editMode} />
+          <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" editable={editMode} />
+          <TimelineEvent date="2024-03-17" description="St. Patrick's Day" imageUrl="https://example.com/st-patrick.jpg" editable={editMode} />
+          <TimelineEvent date="2024-04-01" description="April Fool's Day" imageUrl="https://example.com/april-fool.jpg" editable={editMode} />
+          <TimelineEvent date="2024-05-01" description="Labor Day" imageUrl="https://example.com/labor-day.jpg" editable={editMode} />
+          <TimelineEvent date="2024-06-01" description="Start of Summer" imageUrl="https://example.com/summer.jpg" editable={editMode} />
+          <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" editable={editMode} />
+          <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" editable={editMode} />
+          <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" editable={editMode} />
+          <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" editable={editMode} />
         </VStack>
       )}
     </Container>

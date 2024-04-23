@@ -1,12 +1,25 @@
-import React from "react";
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Image, Text, VStack, Input } from "@chakra-ui/react";
 
-const TimelineEvent = ({ date, description, imageUrl }) => {
+const TimelineEvent = ({ date, description, imageUrl, editable }) => {
+  const [editImageUrl, setImageUrl] = useState(imageUrl);
+  const [editDate, setDate] = useState(date);
+  const [editDescription, setDescription] = useState(description);
   return (
     <VStack spacing={4} align="stretch" p={5} boxShadow="md">
-      <Image src={imageUrl} borderRadius="md" />
-      <Text fontWeight="bold">{date}</Text>
-      <Text>{description}</Text>
+      {editable ? (
+        <>
+          <Input value={editImageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+          <Input value={editDate} onChange={(e) => setDate(e.target.value)} />
+          <Input value={editDescription} onChange={(e) => setDescription(e.target.value)} />
+        </>
+      ) : (
+        <>
+          <Image src={imageUrl} borderRadius="md" />
+          <Text fontWeight="bold">{date}</Text>
+          <Text>{description}</Text>
+        </>
+      )}
     </VStack>
   );
 };
