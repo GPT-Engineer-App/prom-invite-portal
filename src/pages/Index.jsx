@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import { Box, Button, Container, FormControl, FormLabel, Input, Text, useToast, VStack, Image, Heading, Center } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 
+const TimelineEvent = ({ date, description, imageUrl }) => {
+  return (
+    <Box border="1px" borderColor="gray.200" p={4} borderRadius="md">
+      <Image src={imageUrl} alt={description} boxSize="100px" objectFit="cover" />
+      <Text fontWeight="bold">{date}</Text>
+      <Text>{description}</Text>
+    </Box>
+  );
+};
+
 const Index = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -47,6 +57,18 @@ const Index = () => {
           <Text fontSize="2xl" fontWeight="bold" mt="5">
             Will you go to prom with me?
           </Text>
+          <VStack overflowY="auto" maxHeight="400px" spacing={4} p={4}>
+            <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" />
+            <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" />
+            <TimelineEvent date="2024-03-17" description="St. Patrick's Day" imageUrl="https://example.com/st-patrick.jpg" />
+            <TimelineEvent date="2024-04-01" description="April Fool's Day" imageUrl="https://example.com/april-fool.jpg" />
+            <TimelineEvent date="2024-05-01" description="Labor Day" imageUrl="https://example.com/labor-day.jpg" />
+            <TimelineEvent date="2024-06-01" description="Start of Summer" imageUrl="https://example.com/summer.jpg" />
+            <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" />
+            <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" />
+            <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" />
+            <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" />
+          </VStack>
           <Button colorScheme="pink" mt="4" size="lg">
             Yes, I'd love to! <FaHeart />
           </Button>
