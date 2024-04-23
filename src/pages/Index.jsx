@@ -52,27 +52,18 @@ const Index = () => {
           </Button>
         </VStack>
       ) : (
-        <Center flexDirection="column" height="100vh" justifyContent="center">
-          <Image src="https://images.unsplash.com/photo-1642242211503-e9ab6800498f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGRlY29yYXRpb258ZW58MHx8fHwxNzEzODM4MjM2fDA&ixlib=rb-4.0.3&q=80&w=1080" boxSize="300px" borderRadius="full" alt="Romantic Decoration" />
-          <Text fontSize="2xl" fontWeight="bold" mt="5">
-            Will you go to prom with me?
-          </Text>
-          <VStack overflowY="auto" maxHeight="400px" spacing={4} p={4}>
-            <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" />
-            <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" />
-            <TimelineEvent date="2024-03-17" description="St. Patrick's Day" imageUrl="https://example.com/st-patrick.jpg" />
-            <TimelineEvent date="2024-04-01" description="April Fool's Day" imageUrl="https://example.com/april-fool.jpg" />
-            <TimelineEvent date="2024-05-01" description="Labor Day" imageUrl="https://example.com/labor-day.jpg" />
-            <TimelineEvent date="2024-06-01" description="Start of Summer" imageUrl="https://example.com/summer.jpg" />
-            <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" />
-            <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" />
-            <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" />
-            <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" />
-          </VStack>
-          <Button colorScheme="pink" mt="4" size="lg">
-            Yes, I'd love to! <FaHeart />
-          </Button>
-        </Center>
+        <VStack spacing={4} p={4} overflowY="auto" width="100%">
+          <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" />
+          <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" />
+          <TimelineEvent date="2024-03-17" description="St. Patrick's Day" imageUrl="https://example.com/st-patrick.jpg" />
+          <TimelineEvent date="2024-04-01" description="April Fool's Day" imageUrl="https://example.com/april-fool.jpg" />
+          <TimelineEvent date="2024-05-01" description="Labor Day" imageUrl="https://example.com/labor-day.jpg" />
+          <TimelineEvent date="2024-06-01" description="Start of Summer" imageUrl="https://example.com/summer.jpg" />
+          <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" />
+          <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" />
+          <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" />
+          <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" />
+        </VStack>
       )}
     </Container>
   );
