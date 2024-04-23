@@ -67,9 +67,40 @@ const Index = () => {
             </Button>
           )}
           {editMode && (
-            <Button colorScheme="green" onClick={() => setEvents([...events, { date: "", description: "", imageUrl: "" }])}>
-              Add New Event
-            </Button>
+            <>
+              <Button colorScheme="green" onClick={() => setEvents([...events, { date: "", description: "", imageUrl: "" }])}>
+                Add New Event
+              </Button>
+              {events.map((event, index) => (
+                <VStack key={index}>
+                  <TimelineEvent
+                    date={event.date}
+                    description={event.description}
+                    imageUrl={event.imageUrl}
+                    editable={editMode}
+                    onDelete={() => {
+                      const newEvents = [...events];
+                      newEvents.splice(index, 1);
+                      setEvents(newEvents);
+                    }}
+                    onMoveUp={() => {
+                      if (index > 0) {
+                        const newEvents = [...events];
+                        [newEvents[index], newEvents[index - 1]] = [newEvents[index - 1], newEvents[index]];
+                        setEvents(newEvents);
+                      }
+                    }}
+                    onMoveDown={() => {
+                      if (index < events.length - 1) {
+                        const newEvents = [...events];
+                        [newEvents[index], newEvents[index + 1]] = [newEvents[index + 1], newEvents[index]];
+                        setEvents(newEvents);
+                      }
+                    }}
+                  />
+                </VStack>
+              ))}
+            </>
           )}
           <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" editable={editMode} />
           <TimelineEvent date="2024-02-14" description="Valentine's Day" imageUrl="https://example.com/valentine.jpg" editable={editMode} />
