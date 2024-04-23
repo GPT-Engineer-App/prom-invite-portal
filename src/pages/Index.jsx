@@ -83,6 +83,11 @@ const Index = () => {
                       newEvents.splice(index, 1);
                       setEvents(newEvents);
                     }}
+                    onDelete={() => {
+                      const newEvents = [...events];
+                      newEvents.splice(index, 1);
+                      setEvents(newEvents);
+                    }}
                     onMoveUp={() => {
                       if (index > 0) {
                         const newEvents = [...events];
