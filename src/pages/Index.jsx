@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import { Box, Button, Container, FormControl, FormLabel, Input, Text, useToast, VStack, Image, Heading, Center } from "@chakra-ui/react";
+import { Button, Container, FormControl, FormLabel, Input, useToast, VStack, Heading } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
-
-const TimelineEvent = ({ date, description, imageUrl }) => {
-  return (
-    <Box border="1px" borderColor="gray.200" p={4} borderRadius="md">
-      <Image src={imageUrl} alt={description} boxSize="100px" objectFit="cover" />
-      <Text fontWeight="bold">{date}</Text>
-      <Text>{description}</Text>
-    </Box>
-  );
-};
+import TimelineEvent from "./TimelineEvent.jsx";
 
 const Index = () => {
   const [username, setUsername] = useState("");
