@@ -8,6 +8,18 @@ const Index = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [events, setEvents] = useState([
+    { date: "2024-01-01", description: "New Year's Celebration", imageUrl: "https://example.com/new-year.jpg" },
+    { date: "2024-02-14", description: "Valentine's Day", imageUrl: "https://example.com/valentine.jpg" },
+    { date: "2024-03-17", description: "St. Patrick's Day", imageUrl: "https://example.com/st-patrick.jpg" },
+    { date: "2024-04-01", description: "April Fool's Day", imageUrl: "https://example.com/april-fool.jpg" },
+    { date: "2024-05-01", description: "Labor Day", imageUrl: "https://example.com/labor-day.jpg" },
+    { date: "2024-06-01", description: "Start of Summer", imageUrl: "https://example.com/summer.jpg" },
+    { date: "2024-07-04", description: "Independence Day", imageUrl: "https://example.com/independence.jpg" },
+    { date: "2024-08-01", description: "Summer Vacation", imageUrl: "https://example.com/vacation.jpg" },
+    { date: "2024-09-01", description: "Back to School", imageUrl: "https://example.com/school.jpg" },
+    { date: "2024-10-31", description: "Halloween", imageUrl: "https://example.com/halloween.jpg" },
+  ]);
   const toast = useToast();
 
   const handleLogin = () => {
@@ -50,8 +62,13 @@ const Index = () => {
               Save Changes
             </Button>
           ) : (
-            <Button colorScheme="blue" onClick={() => setEditMode(true)}>
-              Edit
+            <Button colorScheme="blue" onClick={() => setEditMode(!editMode)}>
+              {editMode ? "Finish Editing" : "Edit"}
+            </Button>
+          )}
+          {editMode && (
+            <Button colorScheme="green" onClick={() => setEvents([...events, { date: "", description: "", imageUrl: "" }])}>
+              Add New Event
             </Button>
           )}
           <TimelineEvent date="2024-01-01" description="New Year's Celebration" imageUrl="https://example.com/new-year.jpg" editable={editMode} />
@@ -63,7 +80,9 @@ const Index = () => {
           <TimelineEvent date="2024-07-04" description="Independence Day" imageUrl="https://example.com/independence.jpg" editable={editMode} />
           <TimelineEvent date="2024-08-01" description="Summer Vacation" imageUrl="https://example.com/vacation.jpg" editable={editMode} />
           <TimelineEvent date="2024-09-01" description="Back to School" imageUrl="https://example.com/school.jpg" editable={editMode} />
-          <TimelineEvent date="2024-10-31" description="Halloween" imageUrl="https://example.com/halloween.jpg" editable={editMode} />
+          {events.map((event, index) => (
+            <TimelineEvent key={index} date={event.date} description={event.description} imageUrl={event.imageUrl} editable={editMode} />
+          ))}
         </VStack>
       )}
     </Container>
