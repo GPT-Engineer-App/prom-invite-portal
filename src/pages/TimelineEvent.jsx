@@ -6,7 +6,9 @@ const TimelineEvent = ({ date, description, imageUrl, editable }) => {
   const [editDate, setDate] = useState(date);
   const [editDescription, setDescription] = useState(description);
   const onDelete = () => {
-    console.log("Delete event");
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      console.log("Delete event");
+    }
   };
 
   const onMoveUp = () => {
