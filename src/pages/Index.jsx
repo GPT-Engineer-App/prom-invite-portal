@@ -27,7 +27,7 @@ const Index = () => {
       {!isLoggedIn ? (
         <VStack spacing={4} width="100%">
           <Heading as="h1" size="xl" textAlign="center" mt="20">
-            Prom Night Login
+            SSMW
           </Heading>
           <FormControl id="email" isRequired>
             <FormLabel>Email address</FormLabel>
